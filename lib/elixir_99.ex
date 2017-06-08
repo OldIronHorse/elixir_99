@@ -29,4 +29,14 @@ defmodule Elixir_99 do
   def count_elements([_|xs],n) do
     count_elements xs,(n+1)
   end
+
+  def my_reverse(l) do
+    my_reverse(l,[])
+  end
+  def my_reverse([],a) do
+    a
+  end
+  def my_reverse([x|xs],a) do
+    my_reverse(xs,[x|a])
+  end
 end
