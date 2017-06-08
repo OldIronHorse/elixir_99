@@ -19,4 +19,14 @@ defmodule Elixir_99 do
   def element_at([_|xs],k) do
     element_at xs,(k-1)
   end
+
+  def count_elements(l) do
+    count_elements(l,0)
+  end
+  def count_elements([],n) do
+    n
+  end
+  def count_elements([_|xs],n) do
+    count_elements xs,(n+1)
+  end
 end

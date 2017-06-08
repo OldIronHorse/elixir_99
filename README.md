@@ -1,17 +1,8 @@
 # Elixir_99
 
-**TODO: Add description**
+Solutions to the classic 99 Lisp problems implemented in Elixir
 
-## Installation
+## Usage
 
-  1. Add elixir_99 to your list of dependencies in mix.exs:
-
-        def deps do
-          [{:elixir_99, "~> 0.0.1"}]
-        end
-
-  2. Ensure elixir_99 is started before your application:
-
-        def application do
-          [applications: [:elixir_99]]
-        end
+Unit tests for each solution
+run 'mix test'

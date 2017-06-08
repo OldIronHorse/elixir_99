@@ -14,4 +14,10 @@ defmodule Elixir_99Test do
   test "P03: element_at (kth element)" do
     assert element_at([:a,:b,:c,:d,:e],3) == :c
   end
+
+  test "P04: count_elements" do
+    assert count_elements([]) == 0
+    assert count_elements([:a]) == 1
+    assert count_elements([:a,:b,:c,:d,:e]) == 5
+  end
 end
