@@ -137,4 +137,14 @@ defmodule Elixir_99 do
   def duplicate([x|xs],a) do
     duplicate(xs,[[x,x]|a])
   end
+
+  def replicate(l,n) do
+    replicate(l,n,[])
+  end
+  def replicate([],_,a) do
+    Enum.reverse(my_flatten(a))
+  end
+  def replicate([x|xs],n,a) do
+    replicate(xs,n,[(for _ <- 1..n, do: x)|a])
+  end
 end

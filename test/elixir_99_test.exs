@@ -84,4 +84,10 @@ defmodule Elixir_99Test do
     assert duplicate([]) == []
     assert duplicate([:a,:b,:c,:c,:d]) == [:a,:a,:b,:b,:c,:c,:c,:c,:d,:d]
   end
+
+  test "P15: replicate the elements of a list a given number of times" do
+    assert replicate([],5) == []
+    assert replicate([:a,:b,:c],1) == [:a,:b,:c]
+    assert replicate([:a,:b,:c],3) == [:a,:a,:a,:b,:b,:b,:c,:c,:c]
+  end
 end
