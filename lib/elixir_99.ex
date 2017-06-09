@@ -177,7 +177,18 @@ defmodule Elixir_99 do
   def slice([x|xs],0,k,a) do
     slice(xs,0,k-1,[x|a])
   end
-  def slice([x|xs],i,k,a) do
+  def slice([_|xs],i,k,a) do
     slice(xs,i-1,k-1,a)
+  end
+
+  def rotate_left(l,n) when n > 0 do
+    [lhs,rhs] = split(l,n)
+    rhs++lhs
+  end
+  def rotate_left(l,n) when n < 0 do
+    rotate_left(l,length(l)+n)
+  end
+  def rotate_left(l,_) do
+    l
   end
 end

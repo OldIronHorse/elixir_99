@@ -109,4 +109,10 @@ defmodule Elixir_99Test do
     assert slice([:a,:b,:c,:d,:e,:f,:g,:h,:i,:k],3,7) == [:c,:d,:e,:f,:g]
     assert slice([:a,:b,:c,:d,:e,:f,:g,:h,:i,:k],5,15) == [:e,:f,:g,:h,:i,:k]
   end
+
+  test "P19: rotate a list n places to the left" do
+    assert rotate_left([],3) == []
+    assert rotate_left([:a,:b,:c,:d,:e,:f,:g,:h],3) == [:d,:e,:f,:g,:h,:a,:b,:c]
+    assert rotate_left([:a,:b,:c,:d,:e,:f,:g,:h],-2) == [:g,:h,:a,:b,:c,:d,:e,:f]
+  end
 end
