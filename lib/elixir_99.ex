@@ -89,4 +89,17 @@ defmodule Elixir_99 do
   def pack([x|xs],a) do
     pack(xs,[[x]|a])
   end
+
+  def run_length_encode(l) do
+    run_length_encode(l,[])
+  end
+  def run_length_encode([],a) do
+    Enum.reverse(a)
+  end
+  def run_length_encode([x|xs],[{n,x}|as]) do
+    run_length_encode(xs,[{n+1,x}|as])
+  end
+  def run_length_encode([x|xs],a) do
+    run_length_encode(xs,[{1,x}|a])
+  end
 end
