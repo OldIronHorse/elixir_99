@@ -116,4 +116,15 @@ defmodule Elixir_99 do
       end
     end
   end
+
+  def run_length_decode(l) do
+    run_length_decode(l,[])
+  end
+  def run_length_decode([],a) do
+    Enum.reverse(a)
+  end
+  def run_length_decode([{n,x}|xs],a) do
+    el = for _ <- 1..n, do: x
+    run_length_decode(xs,el++a)
+  end
 end

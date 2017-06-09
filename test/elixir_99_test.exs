@@ -73,4 +73,10 @@ defmodule Elixir_99Test do
     assert mod_run_length_encode([:a,:a]) == [{2,:a}]
     assert mod_run_length_encode([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [{4,:a},:b,{2,:c},{2,:a},:d,{4,:e}]
   end
+
+  test "P12: Decode a run-length encoded list" do
+    assert run_length_decode([]) == []
+    assert run_length_decode([{1,:a}]) == [:a]
+    assert run_length_decode([{4,:a},{1,:b},{2,:c},{2,:a},{1,:d},{4,:e}]) == [:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]
+  end
 end
