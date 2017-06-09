@@ -48,4 +48,10 @@ defmodule Elixir_99Test do
     assert compress([:a,:b,:c,:d,:e]) == [:a,:b,:c,:d,:e]
     assert compress([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [:a,:b,:c,:a,:d,:e]
   end
+
+  test "P09: Pack consecutive duplicates into suplists" do
+    assert pack([]) == []
+    assert pack([:a]) == [[:a]]
+    assert pack([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [[:a,:a,:a,:a],[:b],[:c,:c],[:a,:a],[:d],[:e,:e,:e,:e]]
+  end
 end

@@ -76,4 +76,17 @@ defmodule Elixir_99 do
   def compress([x|xs],a) do
     compress(xs,[x|a])
   end
+
+  def pack(l) do
+    pack(l,[])
+  end
+  def pack([], a) do
+    Enum.reverse(a)
+  end
+  def pack([x|xs],[[x|ds]|as]) do
+    pack(xs,[[x|[x|ds]]|as])
+  end
+  def pack([x|xs],a) do
+    pack(xs,[[x]|a])
+  end
 end
