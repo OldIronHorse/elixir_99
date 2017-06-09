@@ -26,4 +26,14 @@ defmodule Elixir_99Test do
     assert my_reverse([:a]) == [:a]
     assert my_reverse([:a,:b,:c,:d,:e]) == [:e,:d,:c,:b,:a]
   end
+
+  test "P06: is_palindrome" do
+    refute is_palindrome([])
+    assert is_palindrome([:a])
+    assert is_palindrome([:a,:a])
+    refute is_palindrome([:a,:b])
+    assert is_palindrome([:a,:b,:a])
+    assert is_palindrome([:a,:b,:b,:a])
+    refute is_palindrome([:a,:b,:c,:a])
+  end
 end

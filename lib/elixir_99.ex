@@ -1,4 +1,5 @@
 defmodule Elixir_99 do
+  require Enum
   def my_last([x|[]]) do
     x
   end
@@ -38,5 +39,15 @@ defmodule Elixir_99 do
   end
   def my_reverse([x|xs],a) do
     my_reverse(xs,[x|a])
+  end
+
+  def is_palindrome([]) do
+    false
+  end
+  def is_palindrome([_]) do
+    true
+  end
+  def is_palindrome(l) do
+    l == Enum.reverse(l)
   end
 end
