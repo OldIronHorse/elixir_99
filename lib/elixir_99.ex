@@ -106,4 +106,14 @@ defmodule Elixir_99 do
   def run_length_encode_(l) do
     for e <- pack(l), do: {length(e),hd(e)}
   end
+
+  def mod_run_length_encode(l) do
+    for {n,x} <- run_length_encode(l) do
+      if n == 1 do
+        x
+      else
+        {n,x}
+      end
+    end
+  end
 end

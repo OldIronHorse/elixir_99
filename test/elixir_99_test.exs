@@ -66,4 +66,11 @@ defmodule Elixir_99Test do
     assert run_length_encode_([:a]) == [{1,:a}]
     assert run_length_encode_([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [{4,:a},{1,:b},{2,:c},{2,:a},{1,:d},{4,:e}]
   end
+
+  test "P11: Modified run-length encodeing" do
+    assert mod_run_length_encode([]) == []
+    assert mod_run_length_encode([:a]) == [:a]
+    assert mod_run_length_encode([:a,:a]) == [{2,:a}]
+    assert mod_run_length_encode([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [{4,:a},:b,{2,:c},{2,:a},:d,{4,:e}]
+  end
 end
