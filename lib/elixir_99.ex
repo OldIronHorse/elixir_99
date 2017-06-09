@@ -127,4 +127,14 @@ defmodule Elixir_99 do
     el = for _ <- 1..n, do: x
     run_length_decode(xs,el++a)
   end
+
+  def duplicate(l) do
+    duplicate(l,[])
+  end
+  def duplicate([],a) do
+    Enum.reverse(my_flatten(a))
+  end
+  def duplicate([x|xs],a) do
+    duplicate(xs,[[x,x]|a])
+  end
 end

@@ -79,4 +79,9 @@ defmodule Elixir_99Test do
     assert run_length_decode([{1,:a}]) == [:a]
     assert run_length_decode([{4,:a},{1,:b},{2,:c},{2,:a},{1,:d},{4,:e}]) == [:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]
   end
+
+  test "P14: duplicate the elements of a list" do
+    assert duplicate([]) == []
+    assert duplicate([:a,:b,:c,:c,:d]) == [:a,:a,:b,:b,:c,:c,:c,:c,:d,:d]
+  end
 end
