@@ -63,4 +63,17 @@ defmodule Elixir_99 do
       my_flatten(xs,[x|a])
     end
   end
+
+  def compress(l) do
+    compress(l,[])
+  end
+  def compress([],a) do
+    Enum.reverse(a)
+  end
+  def compress([x|xs],[x|as]) do
+    compress(xs,[x|as])
+  end
+  def compress([x|xs],a) do
+    compress(xs,[x|a])
+  end
 end

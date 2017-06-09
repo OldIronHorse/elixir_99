@@ -42,4 +42,10 @@ defmodule Elixir_99Test do
     assert my_flatten([:a,:b,:c,:d,:e]) == [:a,:b,:c,:d,:e]
     assert my_flatten([:a,[:b,[:c,:d],:e]]) == [:a,:b,:c,:d,:e]
   end
+
+  test "P08: Eliminate consecutive duplicates from a list" do
+    assert compress([]) == []
+    assert compress([:a,:b,:c,:d,:e]) == [:a,:b,:c,:d,:e]
+    assert compress([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [:a,:b,:c,:a,:d,:e]
+  end
 end
