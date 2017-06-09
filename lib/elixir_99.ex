@@ -164,4 +164,20 @@ defmodule Elixir_99 do
   def split([x|xs],n,a) do
     split(xs,n-1,[x|a])
   end
+
+  def slice(l,i,k) do
+    slice(l,i-1,k,[])
+  end
+  def slice(_,0,0,a) do
+    Enum.reverse(a)
+  end
+  def slice([],_,_,a) do
+    Enum.reverse(a)
+  end
+  def slice([x|xs],0,k,a) do
+    slice(xs,0,k-1,[x|a])
+  end
+  def slice([x|xs],i,k,a) do
+    slice(xs,i-1,k-1,a)
+  end
 end

@@ -103,4 +103,10 @@ defmodule Elixir_99Test do
     assert split([:a,:b],0) == [[],[:a,:b]]
     assert split([:a,:b,:c,:d,:e,:f,:g,:h,:k],3) == [[:a,:b,:c],[:d,:e,:f,:g,:h,:k]]
   end
+
+  test "P18: extract a slice from a list between 2 1-base indicies" do
+    assert slice([],4, 9) == []
+    assert slice([:a,:b,:c,:d,:e,:f,:g,:h,:i,:k],3,7) == [:c,:d,:e,:f,:g]
+    assert slice([:a,:b,:c,:d,:e,:f,:g,:h,:i,:k],5,15) == [:e,:f,:g,:h,:i,:k]
+  end
 end
