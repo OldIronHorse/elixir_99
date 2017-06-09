@@ -102,4 +102,8 @@ defmodule Elixir_99 do
   def run_length_encode([x|xs],a) do
     run_length_encode(xs,[{1,x}|a])
   end
+
+  def run_length_encode_(l) do
+    for e <- pack(l), do: {length(e),hd(e)}
+  end
 end

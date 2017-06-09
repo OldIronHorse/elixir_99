@@ -55,9 +55,15 @@ defmodule Elixir_99Test do
     assert pack([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [[:a,:a,:a,:a],[:b],[:c,:c],[:a,:a],[:d],[:e,:e,:e,:e]]
   end
 
-  test "P10: ren-lenght encode a list" do
+  test "P10: run-length encode a list" do
     assert run_length_encode([]) == []
     assert run_length_encode([:a]) == [{1,:a}]
     assert run_length_encode([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [{4,:a},{1,:b},{2,:c},{2,:a},{1,:d},{4,:e}]
+  end
+
+  test "P10a: run-length encode a list (pack/map)" do
+    assert run_length_encode_([]) == []
+    assert run_length_encode_([:a]) == [{1,:a}]
+    assert run_length_encode_([:a,:a,:a,:a,:b,:c,:c,:a,:a,:d,:e,:e,:e,:e]) == [{4,:a},{1,:b},{2,:c},{2,:a},{1,:d},{4,:e}]
   end
 end
