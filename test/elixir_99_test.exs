@@ -96,4 +96,11 @@ defmodule Elixir_99Test do
     assert drop([:a,:b],3) == [:a,:b]
     assert drop([:a,:b,:c,:d,:e,:f,:g,:h,:i,:k],3) == [:a,:b,:d,:e,:g,:h,:k]
   end
+
+  test "P17: split a list into 2 parts; the length of the first part is given" do
+    assert split([],2) == [[],[]]
+    assert split([:a,:b],3) == [[:a,:b],[]]
+    assert split([:a,:b],0) == [[],[:a,:b]]
+    assert split([:a,:b,:c,:d,:e,:f,:g,:h,:k],3) == [[:a,:b,:c],[:d,:e,:f,:g,:h,:k]]
+  end
 end

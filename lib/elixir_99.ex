@@ -151,4 +151,17 @@ defmodule Elixir_99 do
   def drop(l,n) do
     for {x,true} <- Enum.zip(l,Stream.cycle(Enum.reverse([false|(for _ <- 1..n-1, do: true)]))), do: x
   end
+
+  def split(l,n) do
+    split(l,n,[])
+  end
+  def split(l,0,a) do
+    [Enum.reverse(a),l]
+  end
+  def split([],_,a) do
+    [Enum.reverse(a),[]]
+  end
+  def split([x|xs],n,a) do
+    split(xs,n-1,[x|a])
+  end
 end
