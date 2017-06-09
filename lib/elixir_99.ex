@@ -147,4 +147,8 @@ defmodule Elixir_99 do
   def replicate([x|xs],n,a) do
     replicate(xs,n,[(for _ <- 1..n, do: x)|a])
   end
+
+  def drop(l,n) do
+    for {x,true} <- Enum.zip(l,Stream.cycle(Enum.reverse([false|(for _ <- 1..n-1, do: true)]))), do: x
+  end
 end

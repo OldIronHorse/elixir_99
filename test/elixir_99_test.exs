@@ -90,4 +90,10 @@ defmodule Elixir_99Test do
     assert replicate([:a,:b,:c],1) == [:a,:b,:c]
     assert replicate([:a,:b,:c],3) == [:a,:a,:a,:b,:b,:b,:c,:c,:c]
   end
+
+  test "P16: drop every nth element from a list" do
+    assert drop([],3) == []
+    assert drop([:a,:b],3) == [:a,:b]
+    assert drop([:a,:b,:c,:d,:e,:f,:g,:h,:i,:k],3) == [:a,:b,:d,:e,:g,:h,:k]
+  end
 end
