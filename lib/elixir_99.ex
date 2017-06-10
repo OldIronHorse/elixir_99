@@ -198,4 +198,9 @@ defmodule Elixir_99 do
       [lhs,[r|rhs]] -> lhs++rhs
     end
   end
+
+  def insert_at(l,e,k) do
+    [lhs,rhs] = split(l,k-1)
+    lhs++[e|rhs]
+  end
 end

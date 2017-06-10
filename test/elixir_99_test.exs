@@ -121,4 +121,11 @@ defmodule Elixir_99Test do
     assert remove_at([:a,:b,:c,:d],10) == [:a,:b,:c,:d]
     assert remove_at([:a,:b,:c,:d],2) == [:a,:c,:d]
   end
+
+  test "P21: insert an element at the kth position in a list" do
+    assert insert_at([],:alpha,2) == [:alpha]
+    assert insert_at([:a,:b,:c,:d],:alpha,2) == [:a,:alpha,:b,:c,:d]
+    assert insert_at([:a,:b,:c,:d],:alpha,1) == [:alpha,:a,:b,:c,:d]
+    assert insert_at([:a,:b,:c,:d],:alpha,20) == [:a,:b,:c,:d,:alpha]
+  end
 end
