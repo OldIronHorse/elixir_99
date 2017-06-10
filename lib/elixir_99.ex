@@ -250,4 +250,9 @@ defmodule Elixir_99 do
   def lotto_select(n,m) do
     rnd_select(Enum.to_list(1..m),n)
   end
+
+  #P25: generate a random permutation of a list
+  def rnd_permutation(l) do
+    rnd_select(l,length(l))
+  end
 end
