@@ -59,16 +59,6 @@ defmodule Elixir_99Test do
     refute is_palindrome([:a,:b,:c,:a])
   end
 
-  test "P06f: is_palindrome" do
-    refute f_is_palindrome([])
-    assert f_is_palindrome([:a])
-    assert f_is_palindrome([:a,:a])
-    refute f_is_palindrome([:a,:b])
-    assert f_is_palindrome([:a,:b,:a])
-    assert f_is_palindrome([:a,:b,:b,:a])
-    refute f_is_palindrome([:a,:b,:c,:a])
-  end
-
   test "P07: Flatten a nested list structure" do
     assert my_flatten([]) == []
     assert my_flatten([:a,:b,:c,:d,:e]) == [:a,:b,:c,:d,:e]

@@ -69,12 +69,10 @@ defmodule Elixir_99 do
   def is_palindrome([]) do
     false
   end
-  def is_palindrome([_]) do
-    true
-  end
   def is_palindrome(l) do
     l == Enum.reverse(l)
   end
+
   def my_flatten(l) do
     Enum.reverse(my_flatten(l,[]))
   end
@@ -87,13 +85,6 @@ defmodule Elixir_99 do
     else
       my_flatten(xs,[x|a])
     end
-  end
-
-  def f_is_palindrome([]) do
-    false
-  end
-  def f_is_palindrome(l) do
-    l == Enum.reverse(l)
   end
 
   def compress(l) do
