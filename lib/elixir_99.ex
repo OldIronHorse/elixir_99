@@ -38,6 +38,10 @@ defmodule Elixir_99 do
     element_at xs,(k-1)
   end
 
+  def f_element_at(l,k) do
+    Enum.at(l,k-1)
+  end
+
   def count_elements(l) do
     count_elements(l,0)
   end
