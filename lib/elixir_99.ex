@@ -89,6 +89,13 @@ defmodule Elixir_99 do
     end
   end
 
+  def f_is_palindrome([]) do
+    false
+  end
+  def f_is_palindrome(l) do
+    l == Enum.reverse(l)
+  end
+
   def compress(l) do
     compress(l,[])
   end
