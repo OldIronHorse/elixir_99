@@ -203,4 +203,8 @@ defmodule Elixir_99 do
     [lhs,rhs] = split(l,k-1)
     lhs++[e|rhs]
   end
+
+  def range(start,stop) do
+    for n <-start..stop, do: n
+  end
 end

@@ -128,4 +128,10 @@ defmodule Elixir_99Test do
     assert insert_at([:a,:b,:c,:d],:alpha,1) == [:alpha,:a,:b,:c,:d]
     assert insert_at([:a,:b,:c,:d],:alpha,20) == [:a,:b,:c,:d,:alpha]
   end
+
+  test "P22: create a list of all integers in a given range" do
+    assert range(4,9) == [4,5,6,7,8,9]
+    assert range(4,4) == [4]
+    assert range(9,4) == [9,8,7,6,5,4]
+  end
 end
