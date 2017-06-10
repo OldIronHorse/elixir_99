@@ -230,4 +230,9 @@ defmodule Elixir_99 do
   def range(start,stop) do
     for n <-start..stop, do: n
   end
+
+  #P23: Extract a given number of randomly selected elenemts from a list
+  def rnd_select(l,n) do
+    for i <- 1..n, do: Enum.at(l,Enum.random(0..length(l)-1))
+  end
 end
