@@ -52,6 +52,10 @@ defmodule Elixir_99 do
     count_elements xs,(n+1)
   end
 
+  def f_count_elements(l) do
+    length(l)
+  end
+
   def my_reverse(l) do
     my_reverse(l,[])
   end
@@ -216,7 +220,7 @@ defmodule Elixir_99 do
   def remove_at(l,k) do
     case split(l,k-1) do
       [lhs,[]] -> lhs
-      [lhs,[r|rhs]] -> lhs++rhs
+      [lhs,[_|rhs]] -> lhs++rhs
     end
   end
 

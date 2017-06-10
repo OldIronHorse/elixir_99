@@ -37,6 +37,12 @@ defmodule Elixir_99Test do
     assert count_elements([:a,:b,:c,:d,:e]) == 5
   end
 
+  test "P04f: count_elements" do
+    assert f_count_elements([]) == 0
+    assert f_count_elements([:a]) == 1
+    assert f_count_elements([:a,:b,:c,:d,:e]) == 5
+  end
+
   test "P05: reverse a list" do
     assert my_reverse([]) == []
     assert my_reverse([:a]) == [:a]
