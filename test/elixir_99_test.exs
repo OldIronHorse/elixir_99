@@ -115,4 +115,10 @@ defmodule Elixir_99Test do
     assert rotate_left([:a,:b,:c,:d,:e,:f,:g,:h],3) == [:d,:e,:f,:g,:h,:a,:b,:c]
     assert rotate_left([:a,:b,:c,:d,:e,:f,:g,:h],-2) == [:g,:h,:a,:b,:c,:d,:e,:f]
   end
+
+  test "P20: remove the kth element of a list" do
+    assert remove_at([],10) == []
+    assert remove_at([:a,:b,:c,:d],10) == [:a,:b,:c,:d]
+    assert remove_at([:a,:b,:c,:d],2) == [:a,:c,:d]
+  end
 end

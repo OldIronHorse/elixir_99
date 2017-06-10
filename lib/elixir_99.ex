@@ -191,4 +191,11 @@ defmodule Elixir_99 do
   def rotate_left(l,_) do
     l
   end
+
+  def remove_at(l,k) do
+    case split(l,k-1) do
+      [lhs,[]] -> lhs
+      [lhs,[r|rhs]] -> lhs++rhs
+    end
+  end
 end
