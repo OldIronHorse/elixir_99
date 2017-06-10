@@ -7,6 +7,10 @@ defmodule Elixir_99 do
     my_last xs
   end
 
+  def native_last(l) do
+    hd(Enum.reverse(l))
+  end
+
   def my_but_last([_|[a,b]]) do
     [a,b]
   end
