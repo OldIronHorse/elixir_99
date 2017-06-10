@@ -7,15 +7,28 @@ defmodule Elixir_99 do
     my_last xs
   end
 
-  def native_last(l) do
+  def f_last(l) do
     hd(Enum.reverse(l))
   end
 
-  def my_but_last([_|[a,b]]) do
+  def my_but_last([a,b]) do
     [a,b]
+  end
+  def my_but_last([a]) do
+    [a]
   end
   def my_but_last([_|xs]) do
     my_but_last xs
+  end
+  def my_but_last([]) do
+    []
+  end
+
+  def f_but_last(l) do
+    case Enum.reverse(l) do
+      [a|[b|_]] -> [b,a]
+      _ -> l
+    end
   end
 
   def element_at([x|_],1) do

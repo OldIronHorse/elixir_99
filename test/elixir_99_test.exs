@@ -7,12 +7,20 @@ defmodule Elixir_99Test do
     assert my_last([:a,:b,:c,:d]) == :d
   end
 
-  test "P01n: last" do
-    assert native_last([:a,:b,:c,:d]) == :d
+  test "P01f: last" do
+    assert f_last([:a,:b,:c,:d]) == :d
   end
 
   test "P02: but_last" do
+    assert my_but_last([:a]) == [:a]
+    assert my_but_last([:a,:b]) == [:a,:b]
     assert my_but_last([:a,:b,:c,:d]) == [:c,:d]
+  end
+
+  test "P02f: but_last" do
+    assert f_but_last([:a]) == [:a]
+    assert f_but_last([:a,:b]) == [:a,:b]
+    assert f_but_last([:a,:b,:c,:d]) == [:c,:d]
   end
 
   test "P03: element_at (kth element)" do
