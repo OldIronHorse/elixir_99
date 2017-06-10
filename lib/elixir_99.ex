@@ -233,18 +233,21 @@ defmodule Elixir_99 do
 
   #P23: Extract a given number of randomly selected elenemts from a list
   def rnd_select(l,n) do
-    for i <- 1..n, do: Enum.at(l,Enum.random(0..length(l)-1))
+    rnd_select(l,n,[])
+  end
+  def rnd_select(_,0,a) do
+    a
+  end
+  def rnd_select([],_,a) do
+    a
+  end
+  def rnd_select(l,n,a) do
+    i = Enum.random(1..length(l))
+    rnd_select(remove_at(l,i),n-1,[Enum.at(l,i-1)|a])
   end
 
   #P24: Lotto: Draw n random numbers from the set 1..m
   def lotto_select(n,m) do
-    lotto_select(n,Enum.to_list(1..m),[])
-  end
-  def lotto_select(0,_,drawn) do
-    drawn
-  end
-  def lotto_select(n,numbers,drawn) do
-    i = Enum.random(1..length(numbers))
-    lotto_select(n-1,remove_at(numbers,i),[Enum.at(numbers,i-1)|drawn])
+    rnd_select(Enum.to_list(1..m),n)
   end
 end
