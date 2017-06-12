@@ -156,4 +156,11 @@ defmodule Elixir_99Test do
     assert range(4,4) == [4]
     assert range(9,4) == [9,8,7,6,5,4]
   end
+
+  test "P26: combnations of K elements from a list" do
+    assert combinations(1,[]) == []
+    assert combinations(1,[:a,:b,:c,:d]) == [[:a],[:b],[:c],[:d]]
+    assert combinations(2,[:a,:b,:c,:d]) == [[:a,:b],[:a,:c],[:a,:d],[:b,:c],[:b,:d],[:c,:d]]
+    assert length(combinations(3,Enum.to_list(1..12))) == 220
+  end
 end

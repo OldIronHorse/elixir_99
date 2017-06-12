@@ -255,4 +255,14 @@ defmodule Elixir_99 do
   def rnd_permutation(l) do
     rnd_select(l,length(l))
   end
+
+  def combinations(0,_) do
+    [[]]
+  end
+  def combinations(_,[]) do
+    []
+  end
+  def combinations(n,[x|xs]) do
+    (for y <- combinations(n-1,xs), do: [x|y]) ++ combinations(n,xs)
+  end
 end
