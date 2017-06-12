@@ -265,4 +265,9 @@ defmodule Elixir_99 do
   def combinations(n,[x|xs]) do
     (for y <- combinations(n-1,xs), do: [x|y]) ++ combinations(n,xs)
   end
+
+  def lsort(l) do
+    #Enum.map(Enum.sort(Enum.map(l,&({length(&1),&1})),fn {n1,_},{n2,_} -> n1<=n2 end),fn {_,e} -> e end)
+    l |> Enum.map(&({length(&1),&1})) |> Enum.sort(fn {n1,_},{n2,_} -> n1<=n2 end) |> Enum.map(fn {_,e} -> e end)
+  end
 end

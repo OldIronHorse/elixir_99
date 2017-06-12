@@ -163,4 +163,10 @@ defmodule Elixir_99Test do
     assert combinations(2,[:a,:b,:c,:d]) == [[:a,:b],[:a,:c],[:a,:d],[:b,:c],[:b,:d],[:c,:d]]
     assert length(combinations(3,Enum.to_list(1..12))) == 220
   end
+
+  test "P28a: sort a list of lists according to the length of the sublists" do
+    assert lsort([[:a,:b,:c],[:d,:e],[:f,:g,:h],[:d,:e],[:i,:j,:k,:l],[:m,:n],[:o]]) == 
+      [[:o],[:d,:e],[:d,:e],[:m,:n],[:a,:b,:c],[:f,:g,:h],[:i,:j,:k,:l]]
+    assert lsort([]) == []
+  end
 end
