@@ -73,17 +73,17 @@ defmodule Elixir_99 do
     l == Enum.reverse(l)
   end
 
-  def my_flatten(l) do
-    Enum.reverse(my_flatten(l,[]))
+  def flatten(l) do
+    Enum.reverse(flatten(l,[]))
   end
-  def my_flatten([],a) do
+  def flatten([],a) do
     a
   end
-  def my_flatten([x|xs],a) do
+  def flatten([x|xs],a) do
     if is_list x do
-      my_flatten(xs,my_flatten(x,[]) ++ a)
+      flatten(xs,flatten(x,[]) ++ a)
     else
-      my_flatten(xs,[x|a])
+      flatten(xs,[x|a])
     end
   end
 
@@ -155,7 +155,7 @@ defmodule Elixir_99 do
     duplicate(l,[])
   end
   def duplicate([],a) do
-    Enum.reverse(my_flatten(a))
+    Enum.reverse(flatten(a))
   end
   def duplicate([x|xs],a) do
     duplicate(xs,[[x,x]|a])
@@ -165,7 +165,7 @@ defmodule Elixir_99 do
     replicate(l,n,[])
   end
   def replicate([],_,a) do
-    Enum.reverse(my_flatten(a))
+    Enum.reverse(flatten(a))
   end
   def replicate([x|xs],n,a) do
     replicate(xs,n,[(for _ <- 1..n, do: x)|a])
@@ -268,6 +268,17 @@ defmodule Elixir_99 do
 
   def lsort(l) do
     #Enum.map(Enum.sort(Enum.map(l,&({length(&1),&1})),fn {n1,_},{n2,_} -> n1<=n2 end),fn {_,e} -> e end)
-    l |> Enum.map(&({length(&1),&1})) |> Enum.sort(fn {n1,_},{n2,_} -> n1<=n2 end) |> Enum.map(fn {_,e} -> e end)
+    l 
+    |> Enum.map(&({length(&1),&1})) 
+    |> Enum.sort(fn {n1,_},{n2,_} -> n1<=n2 end) 
+    |> Enum.map(fn {_,e} -> e end)
+  end
+
+  def lfsort(l) do
+    l
+    |> lsort
+    |> Enum.group_by(&(length(&1)))
+    |> Enum.map(fn {_,v} -> v end)
+    |> lsort
   end
 end
