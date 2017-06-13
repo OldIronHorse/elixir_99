@@ -353,15 +353,19 @@ defmodule Elixir_99 do
   end
 
   def goldbach(n) do
-    p = MapSet.new(primes(2,n))
-    a = hd(Enum.drop_while(primes(2,n),&(not MapSet.member?(p,n-&1))))
+    goldbach(n,primes(2,n))
+  end
+  def goldbach(n,p) do
+    ps = MapSet.new(p)
+    a = hd(Enum.drop_while(p,&(not MapSet.member?(ps,n-&1))))
     [a,n-a]
   end
 
   def goldbach_list(a,b) do
+    p = primes(2,b)
     a..b
     |> Enum.filter(&(Integer.is_even(&1)))
-    |> Enum.map(&(goldbach(&1)))
+    |> Enum.map(&(goldbach(&1,p)))
     |> Enum.map(fn([m,n]) -> {m+n,m,n} end)
   end
 
