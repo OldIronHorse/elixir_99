@@ -333,4 +333,15 @@ defmodule Elixir_99 do
     |> run_length_encode()
     |> Enum.map(fn({m,f}) -> {f,m} end)
   end
+
+  def totient_phi_(1) do
+    1
+  end
+  def totient_phi_(n) do
+    #Enum.reduce(Enum.map(prime_factors_mult(n),fn({f,_}) -> 1-(1/f) end),n,fn(x,a) -> x*a end)
+    n
+    |> prime_factors_mult()
+    |> Enum.map(fn({f,_}) -> 1-(1/f) end)
+    |> Enum.reduce(n,fn(x,a) -> x*a end)
+  end
 end

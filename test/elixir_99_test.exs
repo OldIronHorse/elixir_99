@@ -217,4 +217,9 @@ defmodule Elixir_99Test do
   test "P36: determine the mulitiplicty of prime factors of a given positive integer" do
     assert prime_factors_mult(315) == [{3,2},{5,1},{7,1}]
   end
+
+  test "P37: calculate Euler's totient function phi(m) (improved)" do
+    assert totient_phi_(10) == 4
+    assert totient_phi_(1) == 1
+  end
 end
