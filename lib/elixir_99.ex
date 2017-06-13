@@ -299,4 +299,8 @@ defmodule Elixir_99 do
   def gcd(a,b) when a > 0 and b > 0 do
     gcd(b,rem(a,b))
   end
+
+  def coprime?(a,b) when a > 0 and b > 0 do
+    gcd(a,b) == 1
+  end
 end

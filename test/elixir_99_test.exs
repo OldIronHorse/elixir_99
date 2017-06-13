@@ -199,4 +199,9 @@ defmodule Elixir_99Test do
   test "P32: determine the greatest common divisor of 2 positive integers using Euclid's algorithm" do
     assert gcd(36,63) == 9
   end
+
+  test "P32: determine if 2 positive integers are coprime" do
+    assert coprime?(35,64)
+    refute coprime?(16,20)
+  end
 end
