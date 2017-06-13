@@ -3,6 +3,8 @@ defmodule Elixir_99Test do
   doctest Elixir_99
   import Elixir_99
 
+#Lists
+
   test "P01: last" do
     assert my_last([:a,:b,:c,:d]) == :d
   end
@@ -173,5 +175,24 @@ defmodule Elixir_99Test do
   test "P28b: sort a list of lists by frequency of length, rarest first" do
     assert lfsort([[:a,:b,:c],[:d,:e],[:f,:g,:h],[:d,:e],[:i,:j,:k,:l],[:m,:n],[:o]]) == 
       [[:o],[:i,:j,:k,:l],[:a,:b,:c],[:f,:g,:h],[:d,:e],[:d,:e],[:m,:n]]
+  end
+
+#Arithmetic
+
+  test "P31: determine if a given integer is prime" do
+    refute prime?(0)
+    refute prime?(1)
+    assert prime?(2)
+    assert prime?(3)
+    refute prime?(4)
+    assert prime?(5)
+    refute prime?(6)
+    assert prime?(7)
+    refute prime?(8)
+    refute prime?(9)
+    refute prime?(10)
+    assert prime?(11)
+    assert prime?(677)
+    refute prime?(679)
   end
 end

@@ -282,4 +282,14 @@ defmodule Elixir_99 do
     |> lsort
     |> Enum.concat
   end
+
+  def prime?(0) do
+    false
+  end
+  def prime?(2) do
+    true
+  end
+  def prime?(n) do
+    Enum.empty?(Enum.drop_while(2..round(n/2), fn(x) -> rem(n,x) != 0 end))
+  end
 end
