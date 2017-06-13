@@ -280,5 +280,6 @@ defmodule Elixir_99 do
     |> Enum.group_by(&(length(&1)))
     |> Enum.map(fn {_,v} -> v end)
     |> lsort
+    |> Enum.concat
   end
 end
