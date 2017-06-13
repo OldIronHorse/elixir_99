@@ -174,7 +174,7 @@ defmodule Elixir_99Test do
 
   test "P28b: sort a list of lists by frequency of length, rarest first" do
     assert lfsort([[:a,:b,:c],[:d,:e],[:f,:g,:h],[:d,:e],[:i,:j,:k,:l],[:m,:n],[:o]]) == 
-      [[:o],[:i,:j,:k,:l],[:a,:b,:c],[:f,:g,:h],[:d,:e],[:d,:e],[:m,:n]]
+      [[:i,:j,:k,:l],[:o],[:f,:g,:h],[:a,:b,:c],[:m,:n],[:d,:e],[:d,:e]]
   end
 
 #Arithmetic
@@ -221,5 +221,9 @@ defmodule Elixir_99Test do
   test "P37: calculate Euler's totient function phi(m) (improved)" do
     assert totient_phi_(10) == 4
     assert totient_phi_(1) == 1
+  end
+
+  test "P39: find the prime numbers in a giver range" do
+    assert primes(5,17) == [5,7,11,13,17]
   end
 end

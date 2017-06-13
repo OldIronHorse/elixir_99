@@ -279,6 +279,7 @@ defmodule Elixir_99 do
     |> lsort
     |> Enum.group_by(&(length(&1)))
     |> Enum.map(fn {_,v} -> v end)
+    |> Enum.sort
     |> lsort
     |> Enum.concat
   end
@@ -343,5 +344,9 @@ defmodule Elixir_99 do
     |> prime_factors_mult()
     |> Enum.map(fn({f,_}) -> 1-(1/f) end)
     |> Enum.reduce(n,fn(x,a) -> x*a end)
+  end
+
+  def primes(start,stop) do
+    Enum.filter(start..stop,&(prime?(&1)))
   end
 end
