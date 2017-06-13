@@ -349,4 +349,9 @@ defmodule Elixir_99 do
   def primes(start,stop) do
     Enum.filter(start..stop,&(prime?(&1)))
   end
+
+  def goldbach(n) do
+    a = hd(Enum.drop_while(primes(2,n),&(not prime?(n-&1))))
+    [a,n-a]
+  end
 end

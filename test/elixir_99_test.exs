@@ -226,4 +226,8 @@ defmodule Elixir_99Test do
   test "P39: find the prime numbers in a giver range" do
     assert primes(5,17) == [5,7,11,13,17]
   end
+
+  test "P40: Goldbach's cojecture. Find 2 primes that sum to a given positive integer" do
+    assert goldbach(28) == [5,23]
+  end
 end
