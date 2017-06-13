@@ -213,4 +213,8 @@ defmodule Elixir_99Test do
   test "P35: determine the prime factors of a given positive integer" do
     assert prime_factors(315) == [3,3,5,7]
   end
+
+  test "P36: determine the mulitiplicty of prime factors of a given positive integer" do
+    assert prime_factors_mult(315) == [{3,2},{5,1},{7,1}]
+  end
 end

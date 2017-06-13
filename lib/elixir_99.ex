@@ -326,4 +326,11 @@ defmodule Elixir_99 do
       prime_factors(trunc(n/f),[f|factors])
     end
   end
+
+  def prime_factors_mult(n) do
+    n 
+    |> prime_factors() 
+    |> run_length_encode()
+    |> Enum.map(fn({m,f}) -> {f,m} end)
+  end
 end
