@@ -200,8 +200,13 @@ defmodule Elixir_99Test do
     assert gcd(36,63) == 9
   end
 
-  test "P32: determine if 2 positive integers are coprime" do
+  test "P33: determine if 2 positive integers are coprime" do
     assert coprime?(35,64)
     refute coprime?(16,20)
+  end
+  
+  test "P34: calculate Euler's totient function phi(m)" do
+    assert totient_phi(10) == 4
+    assert totient_phi(1) == 1
   end
 end

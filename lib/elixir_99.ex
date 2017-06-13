@@ -303,4 +303,11 @@ defmodule Elixir_99 do
   def coprime?(a,b) when a > 0 and b > 0 do
     gcd(a,b) == 1
   end
+
+  def totient_phi(1) do
+    1
+  end
+  def totient_phi(m) do
+    Enum.count(1..(m-1),fn(x) -> coprime?(x,m) end)
+  end
 end
