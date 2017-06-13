@@ -310,4 +310,20 @@ defmodule Elixir_99 do
   def totient_phi(m) do
     Enum.count(1..(m-1),fn(x) -> coprime?(x,m) end)
   end
+  
+  def prime_factors(n) when n > 0 do
+    prime_factors(n,[])
+  end
+  def prime_factors(n,factors) do
+    if prime?(n) do
+      Enum.sort([n|factors])
+    else
+      f =
+        2..round(n/2)
+        |> Enum.drop_while(fn(x) -> not prime?(x) end)
+        |> Enum.drop_while(fn(x) -> rem(n,x) != 0 end)
+        |> hd()
+      prime_factors(trunc(n/f),[f|factors])
+    end
+  end
 end

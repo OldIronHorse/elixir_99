@@ -209,4 +209,8 @@ defmodule Elixir_99Test do
     assert totient_phi(10) == 4
     assert totient_phi(1) == 1
   end
+
+  test "P35: determine the prime factors of a given positive integer" do
+    assert prime_factors(315) == [3,3,5,7]
+  end
 end
