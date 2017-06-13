@@ -174,7 +174,7 @@ defmodule Elixir_99Test do
 
   test "P28b: sort a list of lists by frequency of length, rarest first" do
     assert lfsort([[:a,:b,:c],[:d,:e],[:f,:g,:h],[:d,:e],[:i,:j,:k,:l],[:m,:n],[:o]]) == 
-      [[:i,:j,:k,:l],[:o],[:f,:g,:h],[:a,:b,:c],[:m,:n],[:d,:e],[:d,:e]]
+      [[:i,:j,:k,:l],[:o],[:a,:b,:c],[:f,:g,:h],[:d,:e],[:d,:e],[:m,:n]]
   end
 
 #Arithmetic
@@ -233,5 +233,9 @@ defmodule Elixir_99Test do
 
   test "P41: list of Goldbach compositions" do
     assert goldbach_list(9,20) == [{10,3,7},{12,5,7},{14,3,11},{16,3,13},{18,5,13},{20,3,17}]
+  end
+
+  test "P41a: list of Goldbach compositions with both numbers bigger than n" do
+    assert goldbach_list(990,2000,50) == [{992,73,919},{1382,61,1321},{1856,67,1789},{1928,61,1867}]
   end
 end

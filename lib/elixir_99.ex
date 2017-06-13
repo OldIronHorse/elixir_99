@@ -1,6 +1,7 @@
 defmodule Elixir_99 do
   require Enum
   require Integer
+  require MapSet
   def my_last([x|[]]) do
     x
   end
@@ -352,7 +353,8 @@ defmodule Elixir_99 do
   end
 
   def goldbach(n) do
-    a = hd(Enum.drop_while(primes(2,n),&(not prime?(n-&1))))
+    p = MapSet.new(primes(2,n))
+    a = hd(Enum.drop_while(primes(2,n),&(not MapSet.member?(p,n-&1))))
     [a,n-a]
   end
 
@@ -361,5 +363,9 @@ defmodule Elixir_99 do
     |> Enum.filter(&(Integer.is_even(&1)))
     |> Enum.map(&(goldbach(&1)))
     |> Enum.map(fn([m,n]) -> {m+n,m,n} end)
+  end
+
+  def goldbach_list(a,b,min) do
+    Enum.filter(goldbach_list(a,b),fn({_,f,_}) -> f > min end)
   end
 end
