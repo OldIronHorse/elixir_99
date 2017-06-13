@@ -292,4 +292,11 @@ defmodule Elixir_99 do
   def prime?(n) do
     Enum.empty?(Enum.drop_while(2..round(n/2), fn(x) -> rem(n,x) != 0 end))
   end
+
+  def gcd(a,0) do
+    a
+  end
+  def gcd(a,b) when a > 0 and b > 0 do
+    gcd(b,rem(a,b))
+  end
 end
