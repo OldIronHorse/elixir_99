@@ -372,4 +372,24 @@ defmodule Elixir_99 do
   def goldbach_list(a,b,min) do
     Enum.filter(goldbach_list(a,b),fn({_,f,_}) -> f > min end)
   end
+
+  def permutations([]) do
+    [[]]
+  end
+  def permutations(list) do
+    for elem <- list, rest <- permutations(list--[elem]), do: [elem|rest]
+  end
+
+  def table(f) do
+    for args <- selections([true,false],:erlang.fun_info(f)[:arity]), do: args++[apply(f,args)]
+  end
+
+  def selections(l,1) do
+    Enum.map(l,&([&1]))
+  end
+  def selections(l,n) do
+    ls = for _ <- 2..n, do: l
+    acc = Enum.map(l,&([&1]))
+    Enum.reduce(ls,acc,fn(x,a) -> for s <- a, e <- x, do: [e|s] end)
+  end
 end

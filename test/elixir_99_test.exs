@@ -238,4 +238,26 @@ defmodule Elixir_99Test do
   test "P41a: list of Goldbach compositions with both numbers bigger than n" do
     assert goldbach_list(990,2000,50) == [{992,73,919},{1382,61,1321},{1856,67,1789},{1928,61,1867}]
   end
+
+# Logic and Codes
+
+  test "generate all possible selections of n element from a list of m where n may exceed m" do
+    assert selections([:a,:b],1) == [[:a],[:b]]
+    assert selections([:a,:b],2) == [[:a,:a],[:b,:a],[:a,:b],[:b,:b]]
+    assert selections([:a,:b],3) == [[:a,:a,:a],
+                                     [:b,:a,:a],
+                                     [:a,:b,:a],
+                                     [:b,:b,:a],
+                                     [:a,:a,:b],
+                                     [:b,:a,:b],
+                                     [:a,:b,:b],
+                                     [:b,:b,:b]]
+  end
+
+  test "P46: truth table for logical expressions" do
+    assert table(fn(a,b) -> a and (a or b) end) == [[true,true,true],
+                                                    [false,true,false],
+                                                    [true,false,true],
+                                                    [false,false,false]]
+  end
 end
