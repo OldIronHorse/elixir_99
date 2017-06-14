@@ -2,6 +2,7 @@ defmodule Elixir_99 do
   require Enum
   require Integer
   require MapSet
+  use Bitwise
   def my_last([x|[]]) do
     x
   end
@@ -391,5 +392,26 @@ defmodule Elixir_99 do
     ls = for _ <- 2..n, do: l
     acc = Enum.map(l,&([&1]))
     Enum.reduce(ls,acc,fn(x,a) -> for s <- a, e <- x, do: [e|s] end)
+  end
+
+  def gray(n) do
+    gray(n-1,["0","1"])
+  end
+  def gray(0,a) do
+    a
+  end
+  def gray(n,a) do
+    gray(n-1,Enum.concat(Enum.map(a,&("0"<>&1)),Enum.map(Enum.reverse(a),&("1"<>&1))))
+  end
+
+  def gray_b(n) do
+    gray_b(n,1,[0,1])
+  end
+  def gray_b(n,n,a) do
+    a
+  end
+  def gray_b(n,bits,a) do
+    mask = 1 <<< bits
+    gray_b(n,bits+1,Enum.concat(a,Enum.map(Enum.reverse(a),&(mask ||| &1))))
   end
 end

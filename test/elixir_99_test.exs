@@ -271,4 +271,16 @@ defmodule Elixir_99Test do
                                                                                 [true,false,false,true],
                                                                                 [false,false,false,true]]
   end
+
+  test "P49: Gray code" do
+    assert gray(1) == ["0","1"]
+    assert gray(2) == ["00","01","11","10"]
+    assert gray(3) == ["000","001","011","010","110","111","101","100"]
+  end
+
+  test "P49a: binary Gray code" do
+    assert gray_b(1) == [0b0,0b1]
+    assert gray_b(2) == [0b00,0b01,0b11,0b10]
+    assert gray_b(3) == [0b000,0b001,0b011,0b010,0b110,0b111,0b101,0b100]
+  end
 end
