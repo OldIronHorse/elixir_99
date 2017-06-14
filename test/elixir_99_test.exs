@@ -260,4 +260,15 @@ defmodule Elixir_99Test do
                                                     [true,false,true],
                                                     [false,false,false]]
   end
+
+  test "P48: generalise true table" do
+    assert table(fn(a,b,c) -> (a and (b or c)) == (a and b or a and c) end) == [[true,true,true,true],
+                                                                                [false,true,true,true],
+                                                                                [true,false,true,true],
+                                                                                [false,false,true,true],
+                                                                                [true,true,false,true],
+                                                                                [false,true,false,true],
+                                                                                [true,false,false,true],
+                                                                                [false,false,false,true]]
+  end
 end
