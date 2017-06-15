@@ -421,7 +421,7 @@ defmodule Elixir_99 do
   end
 
   def do_huffman([{root,_}]) do
-    huffman_map(root,0,%{})
+    huffman_map(root,"",%{})
   end
   def do_huffman(pl) do
     [{c1,p1}|[{c2,p2}|cps]] = Enum.sort(pl,fn({_,p1},{_,p2}) -> p1 < p2 end)
@@ -429,9 +429,15 @@ defmodule Elixir_99 do
   end
 
   def huffman_map({lhs,rhs},code,map) do
-    huffman_map(rhs,(code<<<1)+1,huffman_map(lhs,code<<<1,map))
+    huffman_map(rhs,code<>"1",huffman_map(lhs,code<>"0",map))
   end
   def huffman_map(c,code,map) do
     Map.put(map,c,code)
   end
+
+  def tree?({_,nil,nil}), do: true
+  def tree?({_,lhs,nil}), do: tree?(lhs)
+  def tree?({_,nil,rhs}), do: tree?(rhs)
+  def tree?({_,lhs,rhs}), do: tree?(lhs) and tree?(rhs)
+  def tree?(_), do: false
 end

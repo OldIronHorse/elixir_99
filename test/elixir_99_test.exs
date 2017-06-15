@@ -286,6 +286,23 @@ defmodule Elixir_99Test do
 
   test "P50a: generate Huffman code map from a frequency list" do
     assert huffman([{:a,45},{:b,13},{:c,12},{:d,16},{:e,9},{:f,5}]) ==
-      %{:a => 0b0,:b => 0b101,:c => 0b100,:d => 0b111,:e => 0b1101,:f => 0b1100}
+      %{:a => "0",:b => "101",:c => "100",:d => "111",:e => "1101",:f => "1100"}
+  end
+
+# Binary Trees
+  test "P54a: Check if a given argument is a tree" do
+    refute tree?(:a)
+    refute tree?({:a})
+    refute tree?({nil})
+    refute tree?({:a,nil})
+    refute tree?({nil,nil})
+    refute tree?({:a,:b})
+    refute tree?({:a,:b,nil})
+    refute tree?({:a,nil,:b})
+    assert tree?({:a,nil,nil})
+    assert tree?({:a,{:b,nil,nil},nil})
+    assert tree?({:a,{:b,nil,nil},{:c,nil,nil}})
+    refute tree?({:a,{:b,nil,nil},{:c,nil}})
+    assert tree?({:a,nil,{:b,nil,nil}})
   end
 end
