@@ -283,4 +283,9 @@ defmodule Elixir_99Test do
     assert gray_b(2) == [0b00,0b01,0b11,0b10]
     assert gray_b(3) == [0b000,0b001,0b011,0b010,0b110,0b111,0b101,0b100]
   end
+
+  test "P50a: generate Huffman code map from a frequency list" do
+    assert huffman([{:a,45},{:b,13},{:c,12},{:d,16},{:e,9},{:f,5}]) ==
+      %{:a => 0b0,:b => 0b101,:c => 0b100,:d => 0b111,:e => 0b1101,:f => 0b1100}
+  end
 end

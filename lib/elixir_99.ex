@@ -414,4 +414,24 @@ defmodule Elixir_99 do
     mask = 1 <<< bits
     gray_b(n,bits+1,Enum.concat(a,Enum.map(Enum.reverse(a),&(mask ||| &1))))
   end
+
+  def huffman(fl) do
+    total = Enum.reduce(fl,0,fn({_,f},acc) -> acc+f end)
+    do_huffman(Enum.map(fl,fn({c,f}) -> {c,f/total} end))
+  end
+
+  def do_huffman([{root,_}]) do
+    huffman_map(root,0,%{})
+  end
+  def do_huffman(pl) do
+    [{c1,p1}|[{c2,p2}|cps]] = Enum.sort(pl,fn({_,p1},{_,p2}) -> p1 < p2 end)
+    do_huffman([{{c1,c2},p1+p2}|cps])
+  end
+
+  def huffman_map({lhs,rhs},code,map) do
+    huffman_map(rhs,(code<<<1)+1,huffman_map(lhs,code<<<1,map))
+  end
+  def huffman_map(c,code,map) do
+    Map.put(map,c,code)
+  end
 end
