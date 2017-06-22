@@ -306,6 +306,16 @@ defmodule Elixir_99Test do
     assert tree?({:a,nil,{:b,nil,nil}})
   end
 
+  test "P56: symmetric_structure?" do
+    assert symmetric_structure?({:a,nil,nil})
+    refute symmetric_structure?({:a,{:b,nil,nil},nil})
+    refute symmetric_structure?({:a,nil,{:b,nil,nil}})
+    assert symmetric_structure?({:a,{:c,nil,nil},{:b,nil,nil}})
+    refute symmetric_structure?({:a,{:c,{:d,nil,nil},nil},{:b,nil,nil}})
+    refute symmetric_structure?({:a,{:c,{:d,nil,nil},nil},{:b,{:e,nil,nil},nil}})
+    assert symmetric_structure?({:a,{:c,{:d,nil,nil},nil},{:b,nil,{:e,nil,nil}}})
+  end
+
   test "P57a: add a node to a binary search tree" do
     assert add(2,{3,nil,nil}) == {3,{2,nil,nil},nil}
     assert add(4,{3,nil,nil}) == {3,nil,{4,nil,nil}}

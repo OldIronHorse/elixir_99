@@ -454,4 +454,15 @@ defmodule Elixir_99 do
       {x,lhs,add(v,rhs)}
     end
   end
+
+  def symmetric_structure?({_,lhs,rhs}), do: mirror_structure?(lhs,rhs)
+
+  def mirror_structure?(nil,nil), do: true
+  def mirror_structure?({_,nil,nil},{_,nil,nil}), do: true
+  def mirror_structure?({_,nil,lrhs},{_,rlhs,nil}), do: mirror_structure?(lrhs,rlhs)
+  def mirror_structure?({_,llhs,nil},{_,nil,rrhs}), do: mirror_structure?(llhs,rrhs)
+  def mirror_structure?({_,llhs,lrhs},{_,rlhs,rrhs}) do
+    mirror_structure?(llhs,rrhs) and mirror_structure?(rlhs,lrhs)
+  end
+  def mirror_structure?(_,_), do: false
 end
