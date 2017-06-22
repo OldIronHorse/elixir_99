@@ -440,4 +440,18 @@ defmodule Elixir_99 do
   def tree?({_,nil,rhs}), do: tree?(rhs)
   def tree?({_,lhs,rhs}), do: tree?(lhs) and tree?(rhs)
   def tree?(_), do: false
+
+  def binary_search_tree([x|xs]) do
+    Enum.reduce(xs,{x,nil,nil},&add/2)
+  end
+
+  def add(v,{x,nil,rhs}) when v < x, do: {x,{v,nil,nil},rhs} 
+  def add(v,{x,lhs,nil}) when v > x, do: {x,lhs,{v,nil,nil}} 
+  def add(v,{x,lhs,rhs}) do
+    if v < x do
+      {x,add(v,lhs),rhs}
+    else
+      {x,lhs,add(v,rhs)}
+    end
+  end
 end

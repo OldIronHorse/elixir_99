@@ -305,4 +305,13 @@ defmodule Elixir_99Test do
     refute tree?({:a,{:b,nil,nil},{:c,nil}})
     assert tree?({:a,nil,{:b,nil,nil}})
   end
+
+  test "P57a: add a node to a binary search tree" do
+    assert add(2,{3,nil,nil}) == {3,{2,nil,nil},nil}
+    assert add(4,{3,nil,nil}) == {3,nil,{4,nil,nil}}
+  end
+
+  test "P57: Binary search tree" do
+    assert binary_search_tree([3,2,5,7,1]) == {3,{2,{1,nil,nil},nil},{5,nil,{7,nil,nil}}}
+  end
 end
