@@ -306,6 +306,24 @@ defmodule Elixir_99Test do
     assert tree?({:a,nil,{:b,nil,nil}})
   end
 
+  test "P55a: cbal_tree?" do
+    assert cbal_tree?({:x,nil,nil})
+    assert cbal_tree?({:x,{:x,nil,nil},nil})
+    assert cbal_tree?({:x,nil,{:x,nil,nil}})
+    assert cbal_tree?({:x,{:x,nil,nil},{:x,nil,nil}})
+    refute cbal_tree?({:x,nil,{:x,{:x,nil,nil},nil}})
+    refute cbal_tree?({:x,nil,{:x,nil,{:x,nil,nil}}})
+    refute cbal_tree?({:x,{:x,{:x,nil,nil},nil},nil})
+    refute cbal_tree?({:x,{:x,nil,{:x,nil,nil}},nil})
+  end
+
+  test "P55: Constrect completely balanced binary trees" do
+    assert cbal_tree(4) == [{:x,{:x,{:x,nil,nil},nil},{:x,nil,nil}},
+                            {:x,{:x,nil,{:x,nil,nil}},{:x,nil,nil}},
+                            {:x,{:x,nil,nil},{:x,{:x,nil,nil},nil}},
+                            {:x,{:x,nil,nil},{:x,nil,{:x,nil,nil}}}]
+  end
+
   test "P56: symmetric_structure?" do
     assert symmetric_structure?({:a,nil,nil})
     refute symmetric_structure?({:a,{:b,nil,nil},nil})

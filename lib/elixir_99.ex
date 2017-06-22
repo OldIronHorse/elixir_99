@@ -465,4 +465,13 @@ defmodule Elixir_99 do
     mirror_structure?(llhs,rrhs) and mirror_structure?(rlhs,lrhs)
   end
   def mirror_structure?(_,_), do: false
+
+  def cbal_tree?({_,nil,nil}), do: true
+  def cbal_tree?({_,nil,{_,nil,nil}}), do: true
+  def cbal_tree?({_,{_,nil,nil},nil}), do: true
+  def cbal_tree?({_,lhs,rhs}), do: cbal_tree?(lhs) and cbal_tree?(rhs)
+  def cbal_tree?(_), do: false
+
+  def cbal_tree(n) do
+  end
 end
