@@ -445,15 +445,16 @@ defmodule Elixir_99 do
     Enum.reduce(xs,{x,nil,nil},&add/2)
   end
 
-  def add(v,{x,nil,rhs}) when v < x, do: {x,{v,nil,nil},rhs} 
-  def add(v,{x,lhs,nil}) when v > x, do: {x,lhs,{v,nil,nil}} 
-  def add(v,{x,lhs,rhs}) do
+  def add({v,vlhs,vrhs},{x,nil,rhs}) when v < x, do: {x,{v,vlhs,vrhs},rhs} 
+  def add({v,vlhs,vrhs},{x,lhs,nil}) when v > x, do: {x,lhs,{v,vlhs,vrhs}} 
+  def add({v,vlhs,vrhs},{x,lhs,rhs}) do
     if v < x do
-      {x,add(v,lhs),rhs}
+      {x,add({v,vlhs,vrhs},lhs),rhs}
     else
-      {x,lhs,add(v,rhs)}
+      {x,lhs,add({v,vlhs,vrhs},rhs)}
     end
   end
+  def add(v,root), do: add({v,nil,nil},root)
 
   def symmetric_structure?({_,lhs,rhs}), do: mirror_structure?(lhs,rhs)
 
@@ -472,6 +473,9 @@ defmodule Elixir_99 do
   def cbal_tree?({_,lhs,rhs}), do: cbal_tree?(lhs) and cbal_tree?(rhs)
   def cbal_tree?(_), do: false
 
-  def cbal_tree(n) do
-  end
+  #def cbal_tree(1), do: [{:x,nil,nil}]
+  #def cbal_tree(n), do:
+
+  def tree_rotate_left({v,lhs,nil}), do: {v,lhs,nil}
+  def tree_rotate_left({v,lhs,rhs}), do: add({v,lhs,nil},rhs)
 end

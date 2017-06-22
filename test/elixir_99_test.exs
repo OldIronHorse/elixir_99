@@ -317,12 +317,20 @@ defmodule Elixir_99Test do
     refute cbal_tree?({:x,{:x,nil,{:x,nil,nil}},nil})
   end
 
-  test "P55: Constrect completely balanced binary trees" do
-    assert cbal_tree(4) == [{:x,{:x,{:x,nil,nil},nil},{:x,nil,nil}},
-                            {:x,{:x,nil,{:x,nil,nil}},{:x,nil,nil}},
-                            {:x,{:x,nil,nil},{:x,{:x,nil,nil},nil}},
-                            {:x,{:x,nil,nil},{:x,nil,{:x,nil,nil}}}]
-  end
+  #test "P55: Constrect completely balanced binary trees" do
+    #assert cbal_tree(1) == [{:x,nil,nil}]
+    #assert cbal_tree(2) == [{:x,{:x,nil,nil},nil},
+                            #{:x,nil,{:x,nil,nil}}]
+    #assert cbal_tree(3) == [{:x,{:x,nil,nil}.{:x,nil,nil}}]
+    #assert cbal_tree(4) == [{:x,{:x,{:x,nil,nil},nil},{:x,nil,nil}},
+                            #{:x,{:x,nil,{:x,nil,nil}},{:x,nil,nil}},
+                            #{:x,{:x,nil,nil},{:x,{:x,nil,nil},nil}},
+                            #{:x,{:x,nil,nil},{:x,nil,{:x,nil,nil}}}]
+    #assert cbal_tree(5) == [{:x,{:x,{:x,nil,nil},nil},{:x,{:x,nil,nil},nil}},
+                            #{:x,{:x,nil,{:x,nil,nil}},{:x,nil,{:x,nil,nil}}},
+                            #{:x,{:x,nil,{:x,nil,nil}},{:x,{:x,nil,nil},nil}},
+                            #{:x,{:x,{:x,nil,nil},nil},{:x,nil,{:x,nil,nil}}}]
+  #end
 
   test "P56: symmetric_structure?" do
     assert symmetric_structure?({:a,nil,nil})
@@ -341,5 +349,11 @@ defmodule Elixir_99Test do
 
   test "P57: Binary search tree" do
     assert binary_search_tree([3,2,5,7,1]) == {3,{2,{1,nil,nil},nil},{5,nil,{7,nil,nil}}}
+  end
+
+  test "P57b: Rotate tree left" do
+    assert tree_rotate_left({3,{2,{1,nil,nil},nil},{5,{4,nil,nil},{7,nil,nil}}}) ==
+      {5,{4,{3,{2,{1,nil,nil},nil},nil},nil},{7,nil,nil}}
+    assert tree_rotate_left({:a,nil,nil}) == {:a,nil,nil}
   end
 end
