@@ -478,4 +478,7 @@ defmodule Elixir_99 do
 
   def tree_rotate_left({v,lhs,nil}), do: {v,lhs,nil}
   def tree_rotate_left({v,lhs,rhs}), do: add({v,lhs,nil},rhs)
+
+  def tree_rotate_right({v,nil,rhs}), do: {v,nil,rhs}
+  def tree_rotate_right({v,lhs,rhs}), do: add({v,nil,rhs},lhs)
 end

@@ -356,4 +356,10 @@ defmodule Elixir_99Test do
       {5,{4,{3,{2,{1,nil,nil},nil},nil},nil},{7,nil,nil}}
     assert tree_rotate_left({:a,nil,nil}) == {:a,nil,nil}
   end
+
+  test "P57c: Rotate tree right" do
+    assert tree_rotate_right({3,{2,{1,nil,nil},nil},{5,{4,nil,nil},{7,nil,nil}}}) ==
+      {2,{1,nil,nil},{3,nil,{5,{4,nil,nil},{7,nil,nil}}}}
+    assert tree_rotate_right({:a,nil,nil}) == {:a,nil,nil}
+  end
 end
